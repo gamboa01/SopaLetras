@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #FF80AB; /* Bright pink */
-            --secondary-color: #F8BBD0; /* Light pink */
-            --accent-color: #FCE4EC; /* Very light pink */
-            --text-color: #AD1457; /* Deep pink */
-            --bg-color: #FFF0F5; /* Lavender blush */
-            --grid-bg: #FFEBEE; /* Light pink background */
+            --primary-color: #FF80AB;
+            /* Bright pink */
+            --secondary-color: #F8BBD0;
+            /* Light pink */
+            --accent-color: #FCE4EC;
+            /* Very light pink */
+            --text-color: #AD1457;
+            /* Deep pink */
+            --bg-color: #FFF0F5;
+            /* Lavender blush */
+            --grid-bg: #FFEBEE;
+            /* Light pink background */
         }
 
         .dark {
@@ -130,8 +137,15 @@
         }
 
         @keyframes popup {
-            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
 
         .instructions {
@@ -177,14 +191,14 @@
             font-size: 2rem;
             transform: rotate(-10deg);
         }
-        
+
         .deco-5 {
             top: 40%;
             left: 15%;
             font-size: 1.8rem;
             transform: rotate(-5deg);
         }
-        
+
         .deco-6 {
             top: 45%;
             right: 15%;
@@ -201,22 +215,23 @@
         .progress-bar {
             background-color: var(--primary-color);
         }
-        
+
         .dark .grid-container {
             background-color: #333;
         }
-        
+
         .dark .cell {
             background-color: #444;
             color: #fff;
         }
-        
+
         .dark .word-item {
             background-color: #333;
             color: #fff;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Decorations -->
@@ -226,7 +241,7 @@
         <div class="decoration deco-4">👶</div>
         <div class="decoration deco-5">👗</div>
         <div class="decoration deco-6">🎀</div>
-        
+
         <div class="header">
             <h1>Sopa de Letras</h1>
             <div class="d-flex justify-content-center">
@@ -237,11 +252,13 @@
         </div>
 
         <div class="instructions">
-            <p class="mb-0">Encuentra todas las palabras en la sopa de letras. ¡Puedes deslizar en cualquier dirección!</p>
+            <p class="mb-0">Encuentra todas las palabras en la sopa de letras. ¡Puedes deslizar en cualquier dirección!
+            </p>
         </div>
 
         <div class="progress mb-3">
-            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100">0%</div>
         </div>
 
         <div class="word-list">
@@ -305,22 +322,22 @@
 
         // Word positions and directions for highlighting
         const wordPositions = {
-            "BABERO": {row: 0, col: 8, direction: "horizontal"},
-            "PAÑALES": {row: 1, col: 7, direction: "horizontal"},
-            "PELUCHE": {row: 2, col: 2, direction: "horizontal"},
-            "CHUPETE": {row: 3, col: 1, direction: "horizontal"},
-            "SONAJA": {row: 4, col: 7, direction: "horizontal"},
-            "CUNA": {row: 7, col: 1, direction: "horizontal"},
-            "NIÑA": {row: 13, col: 7, direction: "horizontal"},
-            "ROPA": {row: 8, col: 0, direction: "vertical"},
-            "TALCO": {row: 5, col: 9, direction: "vertical"},
-            "TOALLITAS": {row: 6, col: 12, direction: "vertical"},
-            "BEBE": {row: 0, col: 9, direction: "horizontal"},
-            "ARRULLO": {row: 7, col: 4, direction: "horizontal"},
-            "ZAPATOS": {row: 9, col: 0, direction: "diagonal"},
-            "COBIJA": {row: 9, col: 9, direction: "vertical"},
-            "PAÑALERA": {row: 11, col: 1, direction: "vertical"},
-            "MOISES": {row: 7, col: 7, direction: "diagonal"}
+            "BABERO": { row: 0, col: 8, direction: "horizontal" },
+            "PAÑALES": { row: 1, col: 7, direction: "horizontal" },
+            "PELUCHE": { row: 2, col: 2, direction: "horizontal" },
+            "CHUPETE": { row: 3, col: 1, direction: "horizontal" },
+            "SONAJA": { row: 4, col: 7, direction: "horizontal" },
+            "CUNA": { row: 7, col: 1, direction: "horizontal" },
+            "NIÑA": { row: 13, col: 7, direction: "horizontal" },
+            "ROPA": { row: 8, col: 0, direction: "vertical" },
+            "TALCO": { row: 5, col: 9, direction: "vertical" },
+            "TOALLITAS": { row: 6, col: 12, direction: "vertical" },
+            "BEBE": { row: 0, col: 9, direction: "horizontal" },
+            "ARRULLO": { row: 7, col: 4, direction: "horizontal" },
+            "ZAPATOS": { row: 9, col: 0, direction: "diagonal" },
+            "COBIJA": { row: 9, col: 9, direction: "vertical" },
+            "PAÑALERA": { row: 11, col: 1, direction: "vertical" },
+            "MOISES": { row: 7, col: 7, direction: "diagonal" }
         };
 
         // Game state
@@ -328,7 +345,7 @@
         let foundWords = [];
         let startCell = null;
         let isSelecting = false;
-        
+
         // Colors for marking found words - feminine baby shower palette
         const wordColors = [
             "#FF1493", // DeepPink
@@ -356,6 +373,22 @@
             updateProgress();
         }
 
+        // Disable scroll
+        function disableScroll() {
+            document.body.style.overflow = 'hidden';
+            document.body.style.touchAction = 'none';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        }
+
+        // Enable scroll
+        function enableScroll() {
+            document.body.style.overflow = '';
+            document.body.style.touchAction = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+
         // Create the word list
         function createWordList() {
             const wordContainer = document.getElementById('wordContainer');
@@ -371,7 +404,7 @@
         // Create the grid
         function createGrid() {
             const gridElement = document.getElementById('grid');
-            
+
             for (let i = 0; i < grid.length; i++) {
                 for (let j = 0; j < grid[i].length; j++) {
                     const cell = document.createElement('div');
@@ -379,17 +412,17 @@
                     cell.dataset.row = i;
                     cell.dataset.col = j;
                     cell.textContent = grid[i][j];
-                    
+
                     // Add event listeners for mobile and desktop
                     cell.addEventListener('mousedown', startSelection);
                     cell.addEventListener('mouseover', updateSelection);
                     cell.addEventListener('touchstart', handleTouchStart, { passive: true });
                     cell.addEventListener('touchmove', handleTouchMove, { passive: true });
-                    
+
                     gridElement.appendChild(cell);
                 }
             }
-            
+
             // End selection on mouse up anywhere on the document
             document.addEventListener('mouseup', endSelection);
             document.addEventListener('touchend', endSelection);
@@ -407,7 +440,7 @@
         // Handle touch move event
         function handleTouchMove(e) {
             if (!isSelecting) return;
-            
+
             const touch = e.touches[0];
             const cell = document.elementFromPoint(touch.clientX, touch.clientY);
             if (cell && cell.classList.contains('cell')) {
@@ -421,18 +454,19 @@
             startCell = e.target;
             selectedCells = [startCell];
             updateCellSelection();
+            disableScroll(); // Add this line
         }
 
         // Update the selected cells
         function updateSelection(e) {
             if (!isSelecting) return;
-            
+
             const currentCell = e.target;
             const startRow = parseInt(startCell.dataset.row);
             const startCol = parseInt(startCell.dataset.col);
             const currentRow = parseInt(currentCell.dataset.row);
             const currentCol = parseInt(currentCell.dataset.col);
-            
+
             // Check if the current cell is in a valid direction from the start cell
             if (isValidDirection(startRow, startCol, currentRow, currentCol)) {
                 // Clear previous selection
@@ -441,12 +475,12 @@
                         cell.classList.remove('selected');
                     }
                 });
-                
+
                 // Create new selection
                 selectedCells = [startCell];
                 const cells = getSelectionCells(startRow, startCol, currentRow, currentCol);
                 selectedCells = cells;
-                
+
                 updateCellSelection();
             }
         }
@@ -454,35 +488,35 @@
         // Get all cells in the selection line
         function getSelectionCells(startRow, startCol, endRow, endCol) {
             const cells = [startCell];
-            
+
             // Determine direction
             const rowDiff = endRow - startRow;
             const colDiff = endCol - startCol;
-            
+
             // Normalize direction
             let rowDir = 0;
             let colDir = 0;
-            
+
             if (rowDiff !== 0) rowDir = rowDiff > 0 ? 1 : -1;
             if (colDiff !== 0) colDir = colDiff > 0 ? 1 : -1;
-            
+
             // Add all cells in the line
             let currentRow = startRow + rowDir;
             let currentCol = startCol + colDir;
-            
-            while ((currentRow !== endRow + rowDir || currentCol !== endCol + colDir) && 
-                   currentRow >= 0 && currentRow < grid.length && 
-                   currentCol >= 0 && currentCol < grid[0].length) {
-                
+
+            while ((currentRow !== endRow + rowDir || currentCol !== endCol + colDir) &&
+                currentRow >= 0 && currentRow < grid.length &&
+                currentCol >= 0 && currentCol < grid[0].length) {
+
                 const cell = document.querySelector(`[data-row="${currentRow}"][data-col="${currentCol}"]`);
                 if (cell) {
                     cells.push(cell);
                 }
-                
+
                 currentRow += rowDir;
                 currentCol += colDir;
             }
-            
+
             return cells;
         }
 
@@ -490,7 +524,7 @@
         function isValidDirection(startRow, startCol, endRow, endCol) {
             const rowDiff = Math.abs(endRow - startRow);
             const colDiff = Math.abs(endCol - startCol);
-            
+
             // Horizontal, vertical, or perfect diagonal
             return (rowDiff === 0 || colDiff === 0 || rowDiff === colDiff);
         }
@@ -508,25 +542,26 @@
         function endSelection() {
             if (!isSelecting) return;
             isSelecting = false;
-            
+
             // Check if the selection forms a word
             checkSelection();
-            
+
             // Clear selection
             selectedCells.forEach(cell => {
                 if (!cell.classList.contains('found')) {
                     cell.classList.remove('selected');
                 }
             });
-            
+
             selectedCells = [];
+            enableScroll();
         }
 
         // Check if selected cells form a word
         function checkSelection() {
             const selectedWord = selectedCells.map(cell => cell.textContent).join('');
             const reversedWord = selectedWord.split('').reverse().join('');
-            
+
             if (words.includes(selectedWord) && !foundWords.includes(selectedWord)) {
                 foundWords.push(selectedWord);
                 markWordAsFound(selectedWord);
@@ -545,14 +580,14 @@
             // Get color for this word
             const colorIndex = foundWords.length - 1;
             const wordColor = wordColors[colorIndex % wordColors.length];
-            
+
             // Mark cells with unique color
             selectedCells.forEach(cell => {
                 cell.classList.remove('selected');
                 cell.classList.add('found');
                 cell.style.backgroundColor = wordColor;
             });
-            
+
             // Mark word in list with same color
             const wordElement = document.querySelector(`.word-item[data-word="${word}"]`);
             if (wordElement) {
@@ -574,6 +609,7 @@
         function checkWinCondition() {
             if (foundWords.length === words.length) {
                 setTimeout(() => {
+                    enableScroll(); 
                     document.getElementById('winMessage').style.display = 'block';
                 }, 500);
             }
@@ -583,4 +619,5 @@
         window.addEventListener('DOMContentLoaded', initGame);
     </script>
 </body>
+
 </html>
